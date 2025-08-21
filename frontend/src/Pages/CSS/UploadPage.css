@@ -1,0 +1,84 @@
+h2{
+    text-align: center;
+}
+
+.contentHolder{
+    height: 80vh;
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.uploadBox{
+    margin-top: 20px;
+    width: 50%;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 15px;
+    background-color: rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.uploadLabel {
+  text-align: center;
+  width: 40%;
+  height: 50%;
+  border-radius: 10px;
+  color: white;
+  font-size: 20px;
+  border: dotted 2px whitesmoke;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.uploadBtn{
+    background: transparent;
+    width: 100px;
+    height: 40px;
+    border: 1px solid white;
+    border-radius: 10px;
+    color: white;
+}
+
+.acceptedBox{
+    padding: 10px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+
+.acceptedBox p{
+    color: white;
+    font-size: 20px;
+    text-align: center;
+}
+
+.fileNameContainer {
+    height: 20px;
+    margin-bottom: 10px;
+    position: relative;
+    width: 100%;
+}
+
+.fileName {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    color: #f0f0f0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }

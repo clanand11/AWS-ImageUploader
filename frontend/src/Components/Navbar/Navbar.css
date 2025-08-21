@@ -1,0 +1,29 @@
+h1{
+    color: antiquewhite;
+    text-align: center;
+  }
+  
+  .navbar{
+    width: 90%;
+    margin: auto auto;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.2) ;
+    border-radius: 50px;
+    
+  }
+  
+  .links{
+    width: 50%;
+  }
+  
+  .links a{
+    text-decoration: none;
+    color: aliceblue;
+    font-size: x-large;
+  }
+  
+  .links a:hover{
+    color: azure;
+  }
