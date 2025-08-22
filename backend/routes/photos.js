@@ -22,7 +22,7 @@ router.post('/upload', upload.single('photo'), async (req,res) => {
         ContentType: file.mimetype,
         // ACL: 'public-read',
     };
-    // console.log(BucketName);
+    console.log("Upload Params:", params);
     try {
         const data = await s3.upload(params).promise();
         res.status(200).json({ message: 'Uploaded successfully', url: data.Location });
@@ -40,6 +40,9 @@ router.get('/list', async (req, res) => {
         });
         res.json(urls);
       } catch (err) {
+        console.log("BucketName:", JSON.stringify(BucketName));
+        console.log("Region:", JSON.stringify(process.env.AWS_REGION));
+
         res.status(500).json({ error: err.message });
       }
 })
