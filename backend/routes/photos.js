@@ -3,9 +3,10 @@ const multer = require('multer');
 const AWS = require('aws-sdk');
 const router = express.Router();
 const storage = multer.memoryStorage();
-const upload = multer({storage: storage});
+const upload = multer({storage: storage , 
+                        limits: {fileSize: 20* 1024 *1024} 
+                      });
 require('dotenv').config();
-
 
 const s3 = new AWS.S3({
     region: process.env.AWS_REGION,
@@ -15,6 +16,9 @@ const BucketName = process.env.S3_BUCKET_NAME;
 
 router.post('/upload', upload.single('photo'), async (req,res) => {
     const file = req.file;
+    if(!file){
+      return res.status(400).json({message: 'No file uploaded!'});
+    }
     const params = {
         Bucket : BucketName,
         Key: Date.now() + '_' + file.originalname,
@@ -22,7 +26,6 @@ router.post('/upload', upload.single('photo'), async (req,res) => {
         ContentType: file.mimetype,
         // ACL: 'public-read',
     };
-    console.log("Upload Params:", params);
     try {
         const data = await s3.upload(params).promise();
         res.status(200).json({ message: 'Uploaded successfully', url: data.Location });
